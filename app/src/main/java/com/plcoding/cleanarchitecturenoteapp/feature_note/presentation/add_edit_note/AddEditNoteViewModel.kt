@@ -6,13 +6,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteException
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,12 +22,12 @@ class AddEditNoteViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _noteTitle = mutableStateOf(NoteTextFieldState(
-        hintText = "Enter title..."
+        hint = "Enter title..."
     ))
     val noteTitle: State<NoteTextFieldState> = _noteTitle
 
     private val _noteContent = mutableStateOf(NoteTextFieldState(
-        hintText = "Enter some content"
+        hint = "Enter some content"
     ))
     val noteContent: State<NoteTextFieldState> = _noteContent
 
